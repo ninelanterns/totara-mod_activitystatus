@@ -77,9 +77,9 @@ function activitystatus_save_displayorder($data, $trackedmodsorcourses, $type) {
     global $DB;
     foreach ($trackedmodsorcourses as $cm) {
         $params = [
-            'modid' => $data->coursemodule,
-            'modinstanceid' => $data->instance,
-            'courseormodid' => $cm->id,
+            'modid' => (int) $data->coursemodule,
+            'modinstanceid' => (int) $data->instance,
+            'courseormodid' => (int) $cm->id,
             'itemtype' => $type,
         ];
         if (false !== $pos = $DB->get_field('activitystatus_displayorder', 'displayorder', $params)) {
